@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dienstleistungen ALWISI — Renovierung & Handwerk in Neuss & Düsseldorf</title>
+    <meta name="description" content="Professionelle Renovierungen, Malerarbeiten, Tapezieren, Bodenverlegung, Umzüge und Gartenarbeit in Neuss und Düsseldorf. Jetzt kostenlos anfragen!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0E7FC0;
+            --primary-light: #1A9AE0;
+            --primary-dark: #08547D;
+            --accent: #0E7FC0;
+            --accent-light: #3BA8E0;
+            --gray-logo: #6B7280;
+            --gray-dark: #4B5563;
+            --white: #FFFFFF;
+            --off-white: #F3F4F6;
+            --gray-100: #E5E7EB;
+            --gray-200: #D1D5DB;
+            --gray-300: #9CA3AF;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --text: #374151;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        body[dir="rtl"] {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+        }
+
+        /* ========== LANG SWITCHER ========== */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 4px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 4px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        body[dir="rtl"] .lang-switch {
+            right: auto;
+            left: 20px;
+        }
+
+        .lang-switch button {
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            background: transparent;
+            color: var(--gray-600);
+        }
+
+        .lang-switch button.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .lang-switch button:hover:not(.active) {
+            background: var(--gray-100);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 40%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14,127,192,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo {
+            margin-bottom: 24px;
+        }
+
+        .hero-logo svg {
+            width: 80px;
+            height: 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-light);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14,127,192,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ========== SECTION COMMON ========== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--gray-800);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: var(--off-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gray-700), var(--gray-600));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 1.4rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--gray-800);
+        }
+
+        .service-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ========== WHY US ========== */
+        .why-us {
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .why-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--off-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s;
+        }
+
+        .why-item:hover .why-icon {
+            background: var(--primary);
+        }
+
+        .why-item:hover .why-icon i {
+            color: var(--white);
+        }
+
+        .why-icon i {
+            font-size: 1.6rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .why-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+
+        .why-item p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* ========== AREA ========== */
+        .area {
+            background: var(--off-white);
+        }
+
+        .area-content {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .area-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .area-text h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--gray-800);
+        }
+
+        .area-text p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .area-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .area-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: var(--gray-800);
+        }
+
+        .area-list li i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .area-map {
+            flex: 1;
+            min-width: 280px;
+            height: 350px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .area-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ========== CONTACT INFO BAR ========== */
+        .contact-bar {
+            background: var(--primary);
+            color: var(--white);
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .contact-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .contact-bar a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact-bar a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-bar i {
+            font-size: 1.1rem;
+        }
+
+        /* ========== CTA ========== */
+        .cta {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 50%, var(--primary-dark) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            opacity: 0.85;
+            font-size: 1.1rem;
+            margin-bottom: 36px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+        }
+
+        .btn-phone {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-phone:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer .footer-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer .footer-address {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        footer .footer-links {
+            margin-top: 16px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 120px 20px 80px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .area-content {
+                flex-direction: column;
+            }
+
+            .area-list {
+                grid-template-columns: 1fr;
+            }
+
+            .lang-switch {
+                top: 12px;
+                right: 12px;
+            }
+
+            body[dir="rtl"] .lang-switch {
+                right: auto;
+                left: 12px;
+            }
+
+            .contact-bar .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        /* ========== ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RTL ADJUSTMENTS ========== */
+        body[dir="rtl"] .service-card,
+        body[dir="rtl"] .area-list li {
+            text-align: right;
+        }
+
+        body[dir="rtl"] .area-list {
+            direction: rtl;
+        }
+
+        /* ========== HIDDEN LANG ========== */
+        [data-lang-ar] { display: none; }
+        body[data-lang="ar"] [data-lang-de] { display: none; }
+        body[data-lang="ar"] [data-lang-ar] { display: block; }
+        body[data-lang="ar"] span[data-lang-ar],
+        body[data-lang="ar"] a[data-lang-ar] { display: inline; }
+        body[data-lang="ar"] span[data-lang-de],
+        body[data-lang="ar"] a[data-lang-de] { display: none; }
+        body[data-lang="de"] span[data-lang-ar],
+        body[data-lang="de"] a[data-lang-ar] { display: none; }
+        body[data-lang="de"] span[data-lang-de],
+        body[data-lang="de"] a[data-lang-de] { display: inline; }
+    </style>
+</head>
+<body data-lang="de">
+
+<!-- Language Switcher -->
+<div class="lang-switch">
+    <button class="active" onclick="setLang('de')">DE</button>
+    <button onclick="setLang('ar')">عربي</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <!-- Geometric logo inspired by the card -->
+        <div class="hero-logo">
+            <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="60,5 90,22 90,55 60,72 30,55 30,22" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                <polygon points="40,18 60,8 80,18 80,38 60,48 40,38" fill="rgba(14,127,192,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+                <polygon points="30,30 50,20 50,40 30,50" fill="rgba(156,163,175,0.7)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                <polygon points="70,20 90,30 90,50 70,40" fill="rgba(156,163,175,0.7)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                <polygon points="40,45 60,35 80,45 80,65 60,75 40,65" fill="rgba(14,127,192,0.4)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            </svg>
+        </div>
+        <div class="hero-badge">
+            <span data-lang-de>📍 Neuss · Düsseldorf · Umgebung</span>
+            <span data-lang-ar>📍 نويس · دوسلدورف · المنطقة المحيطة</span>
+        </div>
+        <h1>
+            <span data-lang-de>Dienstleistungen <span>ALWISI</span></span>
+            <span data-lang-ar>خدمات <span>الويسي</span></span>
+        </h1>
+        <p>
+            <span data-lang-de>Renovierung, Malerarbeiten, Bodenverlegung und mehr — professionell, zuverlässig und zu fairen Preisen.</span>
+            <span data-lang-ar>تجديد، دهان، تركيب أرضيات والمزيد — بجودة عالية، موثوقية، وأسعار مناسبة.</span>
+        </p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/4915777942288" class="btn btn-primary" data-lang-de>
+                <i class="fab fa-whatsapp"></i> Kostenlos anfragen
+            </a>
+            <a href="https://wa.me/4915777942288" class="btn btn-primary" data-lang-ar>
+                <i class="fab fa-whatsapp"></i> استفسار مجاني
+            </a>
+            <a href="#services" class="btn btn-outline">
+                <span data-lang-de>Unsere Leistungen</span>
+                <span data-lang-ar>خدماتنا</span>
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+    <div class="container">
+        <a href="tel:+4915777942288"><i class="fas fa-phone"></i> 01577 794 22 88</a>
+        <a href="mailto:ali015251844693@gmail.com"><i class="fas fa-envelope"></i> ali015251844693@gmail.com</a>
+        <a href="https://maps.google.com/?q=Christian-Schaurte-Straße+84+41462+Neuss" target="_blank"><i class="fas fa-map-marker-alt"></i> Christian-Schaurte-Str. 84, 41462 Neuss</a>
+    </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-header fade-in">
+            <div class="section-label">
+                <span data-lang-de>Was wir bieten</span>
+                <span data-lang-ar>ما نقدمه</span>
+            </div>
+            <h2>
+                <span data-lang-de>Unsere Leistungen</span>
+                <span data-lang-ar>خدماتنا</span>
+            </h2>
+            <p>
+                <span data-lang-de>Alles aus einer Hand — von der Renovierung bis zum Umzug.</span>
+                <span data-lang-ar>كل ما تحتاجه من مكان واحد — من التجديد إلى النقل.</span>
+            </p>
+        </div>
+        <div class="services-grid">
+            <!-- Renovierung -->
+            <div class="service-card fade-in">
+                <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                <h3>
+                    <span data-lang-de>Renovierung</span>
+                    <span data-lang-ar>تجديد</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Komplette Renovierungen für Wohnungen und Häuser. Wir verwandeln Ihre Räume — termingerecht und sauber.</span>
+                    <span data-lang-ar>تجديد شامل للشقق والمنازل. نحوّل مساحاتك — في الوقت المحدد وبنظافة تامة.</span>
+                </p>
+            </div>
+            <!-- Tapezieren -->
+            <div class="service-card fade-in">
+                <div class="service-icon"><i class="fas fa-scroll"></i></div>
+                <h3>
+                    <span data-lang-de>Tapezieren</span>
+                    <span data-lang-ar>تركيب ورق جدران</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Tapeten professionell anbringen oder entfernen. Muster, Vlies oder Raufaser — wir machen das.</span>
+                    <span data-lang-ar>تركيب أو إزالة ورق الجدران باحترافية. جميع الأنواع والتصاميم — نحن نتولى المهمة.</span>
+                </p>
+            </div>
+            <!-- Malerarbeiten -->
+            <div class="service-card fade-in">
+                <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                <h3>
+                    <span data-lang-de>Professionelle Malerarbeiten</span>
+                    <span data-lang-ar>دهان احترافي</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Innen- und Außenanstriche mit hochwertigen Farben. Saubere Kanten, gleichmäßiges Ergebnis.</span>
+                    <span data-lang-ar>طلاء داخلي وخارجي بأعلى جودة. حواف نظيفة ونتائج متساوية.</span>
+                </p>
+            </div>
+            <!-- Bodenverlegung -->
+            <div class="service-card fade-in">
+                <div class="service-icon"><i class="fas fa-th-large"></i></div>
+                <h3>
+                    <span data-lang-de>Bodenbelag Verlegen</span>
+                    <span data-lang-ar>تركيب أرضيات</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Parkett, Laminat, Teppiche und mehr — fachgerecht verlegt für ein perfektes Ergebnis.</span>
+                    <span data-lang-ar>باركيه، لامينات، سجاد والمزيد — تركيب احترافي لنتيجة مثالية.</span>
+                </p>
+            </div>
+            <!-- Umzüge -->
+            <div class="service-card fade-in">
+                <div class="service-icon"><i class="fas fa-truck-moving"></i></div>
+                <h3>
+                    <span data-lang-de>Umzugsservice & Möbeltransport</span>
+                    <span data-lang-ar>نقل أثاث وتنقلات</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Umzüge mit allen Leistungen und Möbeltransport im Raum Düsseldorf. Sorgfältig und stressfrei.</span>
+                    <span data-lang-ar>خدمات نقل شاملة ونقل أثاث في منطقة دوسلدورف. بعناية وبدون إجهاد.</span>
+                </p>
+            </div>
+            <!-- Gartenarbeit -->
+            <div class="service-card fade-in">
+                <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                <h3>
+                    <span data-lang-de>Professionelle Gartenarbeit</span>
+                    <span data-lang-ar>أعمال حدائق احترافية</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Gartenpflege, Rasenmähen, Heckenschnitt und Bepflanzung. Ihr Garten in Topform.</span>
+                    <span data-lang-ar>العناية بالحدائق، قص العشب، تقليم الأشجار والزراعة. حديقتك في أفضل حال.</span>
+                </p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:32px;">
+            <p style="color:var(--gray-600); font-size:1.05rem; font-weight:500;">
+                <span data-lang-de>... und viel mehr</span>
+                <span data-lang-ar>... والكثير غير ذلك</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+    <div class="container">
+        <div class="section-header fade-in">
+            <div class="section-label">
+                <span data-lang-de>Warum ALWISI</span>
+                <span data-lang-ar>لماذا الويسي</span>
+            </div>
+            <h2>
+                <span data-lang-de>Darauf können Sie zählen</span>
+                <span data-lang-ar>يمكنك الاعتماد علينا</span>
+            </h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-item fade-in">
+                <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                <h3>
+                    <span data-lang-de>Faire Preise</span>
+                    <span data-lang-ar>أسعار عادلة</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Transparente Angebote ohne versteckte Kosten. Sie wissen vorher, was es kostet.</span>
+                    <span data-lang-ar>عروض شفافة بدون تكاليف مخفية. تعرف السعر مسبقاً.</span>
+                </p>
+            </div>
+            <div class="why-item fade-in">
+                <div class="why-icon"><i class="fas fa-clock"></i></div>
+                <h3>
+                    <span data-lang-de>Pünktlich & Zuverlässig</span>
+                    <span data-lang-ar>دقة في المواعيد</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Wir halten unsere Termine ein — Ihre Zeit ist uns wichtig.</span>
+                    <span data-lang-ar>نلتزم بمواعيدنا — وقتك مهم لنا.</span>
+                </p>
+            </div>
+            <div class="why-item fade-in">
+                <div class="why-icon"><i class="fas fa-star"></i></div>
+                <h3>
+                    <span data-lang-de>Qualitätsarbeit</span>
+                    <span data-lang-ar>جودة عالية</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Saubere Ausführung mit Liebe zum Detail. Ergebnisse, die überzeugen.</span>
+                    <span data-lang-ar>تنفيذ نظيف مع اهتمام بالتفاصيل. نتائج تتحدث عن نفسها.</span>
+                </p>
+            </div>
+            <div class="why-item fade-in">
+                <div class="why-icon"><i class="fas fa-comments"></i></div>
+                <h3>
+                    <span data-lang-de>Wir sprechen Ihre Sprache</span>
+                    <span data-lang-ar>نتكلم لغتك</span>
+                </h3>
+                <p>
+                    <span data-lang-de>Beratung auf Deutsch und Arabisch — damit keine Frage offen bleibt.</span>
+                    <span data-lang-ar>استشارة بالعربي والألماني — لا يبقى سؤال بدون جواب.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area">
+    <div class="container">
+        <div class="area-content">
+            <div class="area-text fade-in">
+                <div class="section-label">
+                    <span data-lang-de>Einsatzgebiet</span>
+                    <span data-lang-ar>منطقة الخدمة</span>
+                </div>
+                <h2>
+                    <span data-lang-de>Neuss, Düsseldorf & Umgebung</span>
+                    <span data-lang-ar>نويس، دوسلدورف والمنطقة المحيطة</span>
+                </h2>
+                <p>
+                    <span data-lang-de>Wir sind in der gesamten Region rund um Düsseldorf und Neuss für Sie unterwegs. Kurze Wege, schneller Service.</span>
+                    <span data-lang-ar>نعمل في جميع أنحاء منطقة دوسلدورف ونويس. مسافات قصيرة، خدمة سريعة.</span>
+                </p>
+                <ul class="area-list">
+                    <li><i class="fas fa-check-circle"></i> Neuss</li>
+                    <li><i class="fas fa-check-circle"></i> Düsseldorf</li>
+                    <li><i class="fas fa-check-circle"></i> Meerbusch</li>
+                    <li><i class="fas fa-check-circle"></i> Kaarst</li>
+                    <li><i class="fas fa-check-circle"></i> Dormagen</li>
+                    <li><i class="fas fa-check-circle"></i> Grevenbroich</li>
+                    <li><i class="fas fa-check-circle"></i> Ratingen</li>
+                    <li><i class="fas fa-check-circle"></i> Erkrath</li>
+                </ul>
+            </div>
+            <div class="area-map fade-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80444.85926996654!2d6.6518168!3d51.198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8b4ea3f0e2d5d%3A0x4234f84e3f1d0c0!2sNeuss!5e0!3m2!1sen!2sde!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <div class="fade-in">
+            <h2>
+                <span data-lang-de>Bereit für Ihr Projekt?</span>
+                <span data-lang-ar>جاهز لمشروعك؟</span>
+            </h2>
+            <p>
+                <span data-lang-de>Kontaktieren Sie uns jetzt — kostenlose Beratung und unverbindliches Angebot.</span>
+                <span data-lang-ar>تواصل معنا الآن — استشارة مجانية وعرض بدون التزام.</span>
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/4915777942288" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-lang-de>WhatsApp schreiben</span>
+                    <span data-lang-ar>راسلنا على واتساب</span>
+                </a>
+                <a href="tel:+4915777942288" class="btn btn-phone">
+                    <i class="fas fa-phone"></i>
+                    <span data-lang-de>Jetzt anrufen</span>
+                    <span data-lang-ar>اتصل الآن</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-brand">Dienstleistungen ALWISI</div>
+        <p>
+            <span data-lang-de>Renovierung & Handwerk in Neuss und Düsseldorf</span>
+            <span data-lang-ar>تجديد وأعمال يدوية في نويس ودوسلدورف</span>
+        </p>
+        <div class="footer-links">
+            <a href="tel:+4915777942288"><i class="fas fa-phone"></i> 01577 794 22 88</a>
+            <a href="mailto:ali015251844693@gmail.com"><i class="fas fa-envelope"></i> ali015251844693@gmail.com</a>
+            <a href="https://wa.me/4915777942288"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <p class="footer-address">Christian-Schaurte-Straße 84 | 41462 Neuss</p>
+        <p style="margin-top: 24px; font-size: 0.8rem; opacity: 0.4;">© 2026 Dienstleistungen ALWISI</p>
+    </div>
+</footer>
+
+<script>
+    // Language switcher
+    function setLang(lang) {
+        document.body.setAttribute('data-lang', lang);
+        document.documentElement.lang = lang === 'ar' ? 'ar' : 'de';
+        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        
+        document.querySelectorAll('.lang-switch button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
