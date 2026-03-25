@@ -101,15 +101,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+
+        .hero::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: 
                 linear-gradient(135deg, rgba(31,41,55,0.92) 0%, rgba(31,41,55,0.88) 40%, rgba(8,84,125,0.90) 100%),
                 url('pictures/Bodenbelag Verlegen/c1.jpeg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            position: relative;
-            overflow: hidden;
-            padding: 80px 20px;
+            z-index: -1;
         }
 
         .hero::before {
@@ -121,17 +131,7 @@
             height: 600px;
             background: radial-gradient(circle, rgba(14,127,192,0.2) 0%, transparent 70%);
             border-radius: 50%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-            border-radius: 50%;
+            z-index: 0;
         }
 
         .hero-content {
@@ -591,12 +591,7 @@
             .hero {
                 min-height: auto;
                 padding: 120px 20px 80px;
-                background: 
-                    linear-gradient(135deg, rgba(31,41,55,0.55) 0%, rgba(31,41,55,0.50) 40%, rgba(8,84,125,0.60) 100%),
-                    url('pictures/Bodenbelag Verlegen/c1.jpeg');
-                background-size: cover;
-                background-position: center;
-                background-attachment: scroll;
+                background: transparent;
             }
 
             section {
@@ -734,6 +729,13 @@
         }
 
         @media (max-width: 768px) {
+            .hero::after {
+                background: 
+                    linear-gradient(135deg, rgba(31,41,55,0.55) 0%, rgba(31,41,55,0.50) 40%, rgba(8,84,125,0.60) 100%),
+                    url('pictures/Bodenbelag Verlegen/c1.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
             .gallery-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
